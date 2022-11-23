@@ -1,3 +1,4 @@
+
 const posts = [
     {
         "id": 1,
@@ -56,7 +57,67 @@ const posts = [
     },
 ];
 
-posts.forEach((Element) => {
-    console.log(Element)
+posts.forEach((Elements) => {
+    console.log(Elements);
+
+// Post generation
+let postContainer = document.getElementById("container")
+    let postCard = document.createElement("div");
+    postCard.classList.add("post")
+    postContainer.appendChild(postCard)
+        let postHeader = document.createElement("div");
+        postHeader.classList.add("post__header")
+        postCard.appendChild(postHeader);
+            let postMeta = document.createElement("div");
+            postMeta.classList.add("post-meta")
+            postHeader.appendChild(postMeta);
+                let postMetaIcon = document.createElement("div");
+                postMetaIcon.classList.add("post-meta__icon")
+                postMeta.appendChild(postMetaIcon);
+                    let profilePic = document.createElement("img");
+                    profilePic.classList.add("profile-pic")
+                    postMetaIcon.appendChild(profilePic);
+                let postMetaData = document.createElement("div");
+                postMetaData.classList.add("post-meta__data")
+                postMeta.appendChild(postMetaData);
+                    let postMetaAuthor = document.createElement("div");
+                    postMetaAuthor.classList.add("post-meta__author")
+                    postMetaData.appendChild(postMetaAuthor);
+                    let postMetaTime = document.createElement("div");
+                    postMetaTime.classList.add("post-meta__time")
+                    postMetaData.appendChild(postMetaTime);
+        let postText = document.createElement("div");
+        postText.classList.add("post__text")
+        postCard.appendChild(postText);
+        let postImage = document.createElement("div");
+        postImage.classList.add("post__image")
+        postCard.appendChild(postImage);
+            let image = document.createElement("img");
+            postImage.appendChild(image);
+        let postFooter = document.createElement("div");
+        postFooter.classList.add("post__footer")
+        postCard.appendChild(postFooter);
+            let likes = document.createElement("div");
+            likes.classList.add("likes");
+            likes.classList.add("js-likes")
+            postFooter.appendChild(likes);
+                let likesCta = document.createElement("div");
+                likesCta.classList.add("likes__cta");
+                likes.appendChild(likesCta);
+                    let likeButton = document.createElement("a");
+                    likeButton.classList.add("like-button");
+                    likeButton.classList.add("js-like-button");
+                    likesCta.appendChild(likeButton);
+                        let likeButtonIcon = document.createElement("i");
+                        likeButtonIcon.classList.add("like-button__icon");
+                        likeButtonIcon.classList.add("fas");
+                        likeButtonIcon.classList.add("fa-thumbs-up");
+                        likeButton.appendChild(likeButtonIcon);
+                        let likeButtonLabel = document.createElement("span");
+                        likeButtonLabel.classList.add("like-button__label")
+                        likeButton.appendChild(likeButtonLabel);
+                let likesCounter = document.createElement("div");
+                likesCounter.classList.add("likes__counter")
+                likes.appendChild(likesCounter);
 
 });
