@@ -3,7 +3,7 @@ const posts = [
     {
         "id": 1,
         "descr": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-        "media": "https://unsplash.it/600/300?image=171",
+        "media": "https://unsplash.it/600/300?image=153",
         "utente": {
             "nome": "Mario Rossi",
             "imgUtente": "https://unsplash.it/300/300?image=15"
@@ -14,10 +14,10 @@ const posts = [
     {
         "id": 2,
         "descr": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-        "media": "https://unsplash.it/600/300?image=171",
+        "media": "https://unsplash.it/600/300?image=199",
         "utente": {
             "nome": "Roberto Verdi",
-            "imgUtente": "https://unsplash.it/300/300?image=15"
+            "imgUtente": "https://unsplash.it/300/300?image=16"
         },
         "miPiace": 190,
         "data": "mm/gg/yyyy"
@@ -25,10 +25,10 @@ const posts = [
     {
         "id": 3,
         "descr": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-        "media": "https://unsplash.it/600/300?image=171",
+        "media": "https://unsplash.it/600/300?image=14",
         "utente": {
             "nome": "Gianna nannini",
-            "imgUtente": "https://unsplash.it/300/300?image=15"
+            "imgUtente": "https://unsplash.it/300/300?image=17"
         },
         "miPiace": 145,
         "data": "mm/gg/yyyy"
@@ -39,7 +39,7 @@ const posts = [
         "media": "",
         "utente": {
             "nome": "Valeria Valentini",
-            "imgUtente": "https://unsplash.it/300/300?image=15"
+            "imgUtente": "https://unsplash.it/300/300?image=18"
         },
         "miPiace": 53,
         "data": "mm/gg/yyyy"
@@ -47,10 +47,10 @@ const posts = [
     {
         "id": 5,
         "descr": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-        "media": "https://unsplash.it/600/300?image=171",
+        "media": "https://unsplash.it/600/300?image=173",
         "utente": {
             "nome": "Riccardo Zanotti",
-            "imgUtente": "https://unsplash.it/300/300?image=15"
+            "imgUtente": "https://unsplash.it/300/300?image=19"
         },
         "miPiace": 77,
         "data": "mm/gg/yyyy"
@@ -117,7 +117,38 @@ let postContainer = document.getElementById("container")
                         likeButtonLabel.classList.add("like-button__label")
                         likeButton.appendChild(likeButtonLabel);
                 let likesCounter = document.createElement("div");
-                likesCounter.classList.add("likes__counter")
+                likesCounter.classList.add("likes__counter");
                 likes.appendChild(likesCounter);
+                    let likesNumber = document.createElement("b");
+                    likesNumber.classList.add("js-likes-counter");
+                    likesNumber.setAttribute("id", "like-counter-1");
+                    likesCounter.appendChild(likesNumber);
+                   
+
+
+// profile pics
+profilePic.src = `${Elements.utente.imgUtente}`;
+
+// Author
+postMetaAuthor.textContent += `${Elements.utente.nome}`;
+
+// Time
+postMetaTime.textContent += `${(Math.floor(Math.random() * 12) + 1)}` + " mesi fa";
+
+// Description
+postText.textContent += `${Elements.descr}`;
+
+// Main post Image
+image.src = `${Elements.media}`
+
+// "mi piace"
+likeButtonLabel.textContent += " Mi Piace";
+
+// "mi piace" counter
+likesCounter.textContent += "Piace a " + `${
+    likesNumber.textContent += `${(Math.floor(Math.random() * 10000) + 1).toString()}`
+}` 
++ " persone";
 
 });
+
