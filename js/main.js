@@ -95,4 +95,18 @@ container.innerHTML += `
             </div>            
         </div>
     `
+
+    let likeButton = document.getElementsByClassName("like-button__label");
+    likeButton.addEventListener("click", miPiace);
+
+    function miPiace(){
+        
+        }
+
+
     });
+
+
+
+
+    
