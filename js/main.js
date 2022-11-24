@@ -61,94 +61,38 @@ posts.forEach((Elements) => {
     console.log(Elements);
 
 // Post generation
-let postContainer = document.getElementById("container")
-    let postCard = document.createElement("div");
-    postCard.classList.add("post")
-    postContainer.appendChild(postCard)
-        let postHeader = document.createElement("div");
-        postHeader.classList.add("post__header")
-        postCard.appendChild(postHeader);
-            let postMeta = document.createElement("div");
-            postMeta.classList.add("post-meta")
-            postHeader.appendChild(postMeta);
-                let postMetaIcon = document.createElement("div");
-                postMetaIcon.classList.add("post-meta__icon")
-                postMeta.appendChild(postMetaIcon);
-                    let profilePic = document.createElement("img");
-                    profilePic.classList.add("profile-pic")
-                    postMetaIcon.appendChild(profilePic);
-                let postMetaData = document.createElement("div");
-                postMetaData.classList.add("post-meta__data")
-                postMeta.appendChild(postMetaData);
-                    let postMetaAuthor = document.createElement("div");
-                    postMetaAuthor.classList.add("post-meta__author")
-                    postMetaData.appendChild(postMetaAuthor);
-                    let postMetaTime = document.createElement("div");
-                    postMetaTime.classList.add("post-meta__time")
-                    postMetaData.appendChild(postMetaTime);
-        let postText = document.createElement("div");
-        postText.classList.add("post__text")
-        postCard.appendChild(postText);
-        let postImage = document.createElement("div");
-        postImage.classList.add("post__image")
-        postCard.appendChild(postImage);
-            let image = document.createElement("img");
-            postImage.appendChild(image);
-        let postFooter = document.createElement("div");
-        postFooter.classList.add("post__footer")
-        postCard.appendChild(postFooter);
-            let likes = document.createElement("div");
-            likes.classList.add("likes");
-            likes.classList.add("js-likes")
-            postFooter.appendChild(likes);
-                let likesCta = document.createElement("div");
-                likesCta.classList.add("likes__cta");
-                likes.appendChild(likesCta);
-                    let likeButton = document.createElement("a");
-                    likeButton.classList.add("like-button");
-                    likeButton.classList.add("js-like-button");
-                    likesCta.appendChild(likeButton);
-                        let likeButtonIcon = document.createElement("i");
-                        likeButtonIcon.classList.add("like-button__icon");
-                        likeButtonIcon.classList.add("fas");
-                        likeButtonIcon.classList.add("fa-thumbs-up");
-                        likeButton.appendChild(likeButtonIcon);
-                        let likeButtonLabel = document.createElement("span");
-                        likeButtonLabel.classList.add("like-button__label")
-                        likeButton.appendChild(likeButtonLabel);
-                let likesCounter = document.createElement("div");
-                likesCounter.classList.add("likes__counter");
-                likes.appendChild(likesCounter);
-                    let likesNumber = document.createElement("b");
-                    likesNumber.classList.add("js-likes-counter");
-                    likesNumber.setAttribute("id", "like-counter-1");
-                    likesCounter.appendChild(likesNumber);
-                   
+let container = document.getElementById("container")
 
-
-// profile pics
-profilePic.src = `${Elements.utente.imgUtente}`;
-
-// Author
-postMetaAuthor.textContent += `${Elements.utente.nome}`;
-
-// Time
-postMetaTime.textContent += `${(Math.floor(Math.random() * 12) + 1)}` + " mesi fa";
-
-// Description
-postText.textContent += `${Elements.descr}`;
-
-// Main post Image
-image.src = `${Elements.media}`
-
-// "mi piace"
-likeButtonLabel.textContent += " Mi Piace";
-
-// "mi piace" counter
-likesCounter.textContent += "Piace a " + `${
-    likesNumber.textContent += `${(Math.floor(Math.random() * 10000) + 1).toString()}`
-}` 
-+ " persone";
-
-});
-
+container.innerHTML += `
+        <div class="post">
+            <div class="post__header">
+                <div class="post-meta">                    
+                    <div class="post-meta__icon">
+                        <img class="profile-pic" src="${Elements.utente.imgUtente}" alt="Phil Mangione">                    
+                    </div>
+                    <div class="post-meta__data">
+                        <div class="post-meta__author">${Elements.utente.nome}</div>
+                        <div class="post-meta__time">${(Math.floor(Math.random() * 12) + 1)} mesi fa</div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="post__text">${Elements.descr}</div>
+            <div class="post__image">
+                <img src="${Elements.media}" alt="">
+            </div>
+            <div class="post__footer">
+                <div class="likes js-likes">
+                    <div class="likes__cta">
+                        <a class="like-button  js-like-button" href="#" data-postid="1">
+                            <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                            <span class="like-button__label">Mi Piace</span>
+                        </a>
+                    </div>
+                    <div class="likes__counter">
+                        Piace a <b id="like-counter-1" class="js-likes-counter">${(Math.floor(Math.random() * 10000) + 1)}</b> persone
+                    </div>
+                </div> 
+            </div>            
+        </div>
+    `
+    });
